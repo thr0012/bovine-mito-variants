@@ -38,8 +38,10 @@ Expected time: about 10 minutes on a laptop (1 thread).
 2. Download the first 4,000,000 read pairs of SRR33165226 with fastq-dump
    (--split-files, uncompressed).
 3. Trim adapters and low-quality bases with fastp (1 thread, default settings).
-4. Map trimmed reads to the reference with bwa mem (1 thread, -K 100000000),
-   sort and index with samtools.
+   The fastp JSON/HTML reports are written to work/ and are not part of the outputs.
+4. Index the reference with bwa index, then map trimmed reads with bwa mem
+   (1 thread, -K 100000000, read group ID:s1, SM:s1), sort with samtools sort and
+   index with samtools index.
 5. Summarize mapping with samtools flagstat and samtools coverage.
 6. Call variants with bcftools mpileup and bcftools call (-mv, --ploidy 1);
    the VCF header is dropped (bcftools view -H) because it contains the
