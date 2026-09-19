@@ -33,7 +33,9 @@ Expected time: about 10 minutes on a laptop (1 thread).
 
 ## Methods (steps in order)
 
-1. Download the reference FASTA (NC_006853.1) with NCBI efetch.
+1.  Download the reference FASTA (NC_006853.1) from NCBI efetch
+   (https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi, db=nuccore,
+   rettype=fasta) with curl.
 2. Download the first 4,000,000 read pairs of SRR33165226 with fastq-dump
    (--split-files, uncompressed).
 3. Trim adapters and low-quality bases with fastp (1 thread, default settings).
