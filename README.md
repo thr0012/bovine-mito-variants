@@ -49,6 +49,11 @@ Expected time: about 10 minutes on a laptop (1 thread).
 7. Write sha256 checksums of the reference, both FASTQ files and all outputs
    to CHECKSUMS.txt.
 
+## Reproducing
+
+Use environment.yml (environment.lock.yml is the exact export of the original run, provided as reference).
+run.sh overwrites CHECKSUMS.txt. To compare against the original results, copy the committed CHECKSUMS.txt aside before running, then diff it with the regenerated one.
+
 ## Expected output (out/)
 
 - flagstat.txt: mapping summary
@@ -58,6 +63,7 @@ Expected time: about 10 minutes on a laptop (1 thread).
 Verify from the project root, after run.sh finishes:
 
     sha256sum -c CHECKSUMS.txt
+    
 
 ## Notes
 
